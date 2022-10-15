@@ -1,0 +1,20 @@
+<button class="btn btn-primary" @onclick="CancelSelected">Cancel</button>
+<button class="btn btn-primary" type="submit" @onclick="ConfirmSelected">Confirm</button>
+
+@code {
+    [Parameter]
+    public EventCallback OnCancel { get; set; }
+    [Parameter]
+    public EventCallback OnConfirm { get; set; }
+    
+    private async Task CancelSelected()
+    {
+        await OnCancel.InvokeAsync();
+    }
+
+    private async Task ConfirmSelected()        
+    {
+        await OnConfirm.InvokeAsync();
+    }
+
+}

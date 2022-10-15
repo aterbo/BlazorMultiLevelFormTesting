@@ -1,0 +1,34 @@
+<div>
+    <EditForm Model="@parentObject" OnValidSubmit="@HandleValidSubmit">
+    <ObjectGraphDataAnnotationsValidator />
+    <ValidationSummary />
+    <br />
+    <ParentForm @bind-ParentObject=parentObject/>
+    <br />
+    <ChildFormA @bind-ChildObjectA=parentObject.ChildA/>
+    <br />
+    <br />
+    <ButtonPair OnConfirm="Confirm" OnCancel="Cancel" />
+    </EditForm>
+</div>
+
+@code {
+    
+    public ParentObject parentObject = new();
+
+    private async Task Confirm()
+    {
+        Console.WriteLine("Confirm");
+    }
+
+    private async Task Cancel()
+    {
+        Console.WriteLine("Cancel");
+    }
+
+        private async Task HandleValidSubmit()
+    {
+        Console.WriteLine("HandleValidSubmit");
+    }
+
+}

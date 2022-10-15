@@ -1,0 +1,17 @@
+<div>Parent Object Form</div>
+<InputNumber @bind-Value=ParentObject.ParentObjAInt></InputNumber>
+<br />
+<InputText @bind-Value=ParentObject.ParentObjStringA></InputText>
+<br />
+<InputText @bind-Value=ParentObject.ParentObjStringB></InputText>
+<br />
+    <ChildFormB @bind-ChildObjectB=ParentObject.ChildB/>
+
+@code{
+    [Parameter]
+    public ParentObject ParentObject { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<ParentObject> ParentObjectChanged { get; set; }
+
+}
